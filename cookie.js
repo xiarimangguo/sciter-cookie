@@ -13,6 +13,7 @@ function initDb(storage) {
     storage.commit();
     return storage.root;
 }
+
 window.localStorage = {
     setItem: function (Key, Val) {
         root["localStorage"][Key] = Val;
@@ -25,6 +26,7 @@ window.localStorage = {
         this.setItem(Key, undefined);
     }
 };
+
 window.sessionStorage = {
     setItem: function (Key, Val) {
         root["sessionStorage"][Key] = Val;
