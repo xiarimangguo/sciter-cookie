@@ -26,7 +26,7 @@ Use `document.cookie` to read and store cookies.
 
 You can manipulate the `document.cookie` property normally the way you would in your browser.
 
-For usage, please refer to [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
+For usage, please refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie).
 #### Cookies object
 sciter-cookie provides you with a Cookie object to easily manipulate cookies.
 
@@ -39,12 +39,12 @@ If you want to use the full version of js-cookie, please override the `window.Co
 sciter-cookie supports the basic functionality of `localStorage`.  
 You can manipulate the `localStorage` property normally the way you would in a browser.
 
-For usage, please refer to [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
+For usage, please refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 ### sessionStorage
 sciter-cookie supports the basic functionality of `sessionStorage`.  
 You can manipulate the `sessionStorage` property normally the way you would in a browser.
 
-For usage, please refer to [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage)
+For usage, please refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage).
 ## About
 This project is developed by [@xiarimangguo](https://github.com/xiarimangguo/).
 
