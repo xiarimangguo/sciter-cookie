@@ -20,10 +20,15 @@ window.localStorage = {
         storage.commit();
     },
     getItem: function (Key) {
+        if (!root["localStorage"][Key]) return "";
         return root["localStorage"][Key];
     },
     removeItem: function (Key) {
         this.setItem(Key, undefined);
+    },
+    clear: function () {
+        root["localStorage"] = {};
+        storage.commit();
     }
 };
 
@@ -32,10 +37,14 @@ window.sessionStorage = {
         root["sessionStorage"][Key] = Val;
     },
     getItem: function (Key) {
+        if (!root["sessionStorage"][Key]) return "";
         return root["sessionStorage"][Key];
     },
     removeItem: function (Key) {
         this.setItem(Key, undefined);
+    },
+    clear: function () {
+        root["sessionStorage"] = {};
     }
 };
 
@@ -105,6 +114,7 @@ Object.defineProperty(document, "cookie", {
                     var expr = (timeNow > timeStmp);
                     if (expr) delete storRoot[k];
                     if (!expr) returnObj[storRoot[k]["key"]] = storRoot[k]["value"];
+                    if (!expr && !returnObj[storRoot[k]["key"]]) returnObj[storRoot[k]["key"]] = "";
                 }
                 if (!aLocked) storChild = storRoot["@" + pathPart[j]];
             }
@@ -159,12 +169,14 @@ Object.defineProperty(document, "cookie", {
             if (isLocked) aMap[1] = aMap[forCounter];
             if (isLocked) aMap[0] = predefined[forCounter];
             if (aMap[0] == "expires") aMap[1] = new Date(aMap[1]);
+            if (aMap[0] == "secure" && aMap[1] == undefined) aMap[1] = "1";
             if (aMap[0] == "secure") aMap[1] = aMap[1].toBoolean();
             cookieMap[aMap[0]] = aMap[1];
             var isLocked = 0;
             if (forCounter <= 0) i--;
             forCounter++;
         }
+        if (!cookieMap["value"]) cookieMap["value"] = "";
         if (!cookieMap["expires"]) var timeNow = new Date();
         if (!cookieMap["expires"]) var timeFtr = timeNow.getDate() + 7;
         if (!cookieMap["expires"]) var timeCrcl = new Date();
@@ -229,31 +241,44 @@ Object.defineProperty(document, "cookie", {
 
 window.Cookies = {
     set: function (cname, cvalue, settings) {
+        if (!cname) return "";
+        if (!cvalue) var cvalue = "";
         if (!settings) var settings = {};
+        if (!settings.path) settings.path = "/";
         if (!settings.expires) settings.expires = 7;
         var d = new Date();
         d.setTime(d.getTime() + (settings.expires * 24 * 60 * 60 * 1000));
         var expires = d.toUTCString();
-        var cs = cname+"="+cvalue+"; ";
+        var cs = cname + "=" + cvalue + "; ";
+        var addtion = "; ";
+        var cl = Object.keys(settings).length;
+        var forCounter = 0;
         for (var i in settings) {
+            forCounter++;
+            if (forCounter == cl) var addtion = "";
             if (i != "expires") settings[i] = settings[i].toString();
             if (i == "expires") settings[i] = expires;
-            cs += i + "=" + settings[i] + "; ";
+            cs += i + "=" + settings[i] + addtion;
         }
         document.cookie = cs;
+        return cs;
     },
     get: function (cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
+        var returnObj = {};
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i].trim();
+            if (!cname) var kv = c.split("=");
+            if (!cname) returnObj[kv[0]] = kv[1];
             if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
         }
+        if (!cname) return returnObj;
         return "";
     },
     remove: function (cname, settings) {
         if (!settings) var settings = {};
         settings.expires = 0;
-        this.set(cname, "", settings);
+        return this.set(cname, "", settings);
     }
 }
