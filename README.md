@@ -1,5 +1,5 @@
 # sciter-cookie
-This is a cookie interface implemented from scratch with js, using Sciter's Storage object to store data, allowing Sciter to support the cookie function like a browser.
+This is a cookie interface implemented from Sciter with js, using Sciter's Storage object to store data, allowing Sciter to support the cookie function like a browser.
 
 [Sciter](https://github.com/c-smile/sciter-sdk) is a C++-based GUI framework that allows you to quickly build GUI applications using C++ and HTML.
 
