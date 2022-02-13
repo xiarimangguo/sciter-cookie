@@ -29,7 +29,7 @@ sciter-cookie为您提供了一个Cookie对象，可以方便地操作Cookie。
 
 使用方式请参考[js-cookie](https://github.com/js-cookie/js-cookie)的`Basic Usage`部分。
 
-不过，这个Cookie对象并未完全实现js-cookie的全部功能，仅支持`set``get``remove`这三个基本操作。
+不过，这个Cookie对象并未完全实现js-cookie的全部功能，仅支持`set` `get` `remove`这三个基本操作。
 
 如果您想使用完整版的js-cookie，请您覆盖掉`window.Cookies`对象，并在您的项目中引入js-cookie。
 ### localStorage
