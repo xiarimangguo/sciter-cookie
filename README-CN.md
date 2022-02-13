@@ -1,5 +1,5 @@
 # sciter-cookie
-这是一个用js从零实现cookie接口，使用Sciter的Storage对象存储数据，可以让Sciter像浏览器一样支持Cookie功能。
+这是一个用js从零实现的cookie接口，使用Sciter的Storage对象存储数据，可以让Sciter像浏览器一样支持Cookie功能。
 
 [Sciter](https://github.com/c-smile/sciter-sdk)是一个基于C++的图形界面框架，可以让你使用C++和HTML快速构建GUI应用。
 ## 使用
