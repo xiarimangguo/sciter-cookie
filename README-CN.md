@@ -23,7 +23,7 @@ sciter-cookie支持`Cookie`的基本功能。
 
 您可以按照您在浏览器中的方式正常操作`document.cookie`属性。
 
-使用方式请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)
+使用方式请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie)。
 #### Cookies对象
 sciter-cookie为您提供了一个Cookie对象，可以方便地操作Cookie。
 
@@ -36,12 +36,12 @@ sciter-cookie为您提供了一个Cookie对象，可以方便地操作Cookie。
 sciter-cookie支持`localStorage`的基本功能。  
 您可以按照您在浏览器中的方式正常操作`localStorage`属性。
 
-使用方式请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
+使用方式请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)。
 ### sessionStorage
 sciter-cookie支持`sessionStorage`的基本功能。  
 您可以按照您在浏览器中的方式正常操作`sessionStorage`属性。
 
-使用方式请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage)
+使用方式请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage)。
 ## 关于
 本项目由 [@xiarimangguo](https://github.com/xiarimangguo/) 开发。  
 如果你认为这个项目很方便，别忘了为我点亮star呀~
